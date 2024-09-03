@@ -1,0 +1,63 @@
+<h3 class="text-center mt-3">Add books</h3>
+
+
+
+
+<form class="p-3" [formGroup]="addForm" (ngSubmit)="add()">
+
+
+    <div class="box p-4 border rounded shadow m-auto" style="width: 50%;">
+
+     <!-- bookid -->
+         <div class="mt-2">
+           <input type="text" class="form-control " placeholder="Bookid" formControlName="bookId" />
+         </div>
+
+         <!-- title -->
+         <div class="mt-4">
+           <input type="text" class="form-control " placeholder="Title" formControlName="title" />
+         </div>
+
+       <!-- author -->
+         <div class="mt-4">
+           <input type="text" class="form-control " placeholder="Author"  formControlName="author"/>
+         </div>
+
+         <!-- price -->
+         <div class="mt-4">
+          <input type="text" class="form-control " placeholder="price"  formControlName="price"/>
+        </div>
+        
+         <!-- isassigned -->
+
+          <div class="form-floating mt-4 " >
+            <select  id="" class="form-control " formControlName="isAssigned">
+             <option disabled selected hidden></option>
+             <option value="1">Assign</option>
+              <option value="0" >Free</option>
+            </select>
+        
+            <label for="floatingEmail">Status</label>
+          </div>
+
+          <!-- assigned member -->
+          <div class="form-floating mt-4 " >
+            <select id="" class="form-control" [(ngModel)]="selectedMemberId" formControlName="assignedTo">
+              <option ></option>
+              <option >null</option>
+              <option *ngFor="let member of members" >{{member.name}}</option>
+            </select>
+        
+            <label for="floatingEmail">Assigned Member</label>
+          </div> 
+        
+
+<!--  button-->
+        
+           <div class=" d-flex align-items-center justify-content-center">
+            <button type="submit" class="btn btn-success mb-4 w-50 mt-4">Add</button>
+           </div>
+
+   </div>
+</form>
+

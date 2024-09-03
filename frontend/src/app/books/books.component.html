@@ -1,0 +1,60 @@
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+    <div class="container-fluid">
+      <i class="fa-solid fa-book fs-4 ms-5"></i>
+      <a class="navbar-brand fw-bold fs-3 ms-2" href="#" routerLink="/">BookHub</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto me-4">
+          <li class="nav-item">
+            <a class="nav-link active fw-bold fs-5 text-primary" aria-current="page" href="" routerLink="/user/add">Add book</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+<!--  -->
+
+
+
+<h4 class="text-center mt-3">Books Details</h4>
+
+<!-- search -->
+<div class=" w-25 mb-5 ms-auto me-5">
+       
+  <input class="form-control me-2" type="search" placeholder="Search Book" name="searchKey" [(ngModel)]="searchKey" >
+
+</div>
+
+
+
+<table class="table table-hover m-5 me-3 shadow">
+    <thead>
+      <tr>
+        <th scope="col">Bookid</th>
+        <th scope="col">Title</th>
+        <th scope="col">Author</th>
+        <th scope="col">Price</th>
+        <th scope="col">Status</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let book of allBooks | search:searchKey:'title'">
+        <th scope="row">{{book.bookId}}</th>
+        <td>{{book.title}}</td>
+        <td>{{book.author}}</td>
+        <td>{{book.price}}</td>
+        <td class="btn " routerLink="/user/assign/{{book._id}}">{{ book.isAssigned ? 'Assigned' : 'Free ' }}</td>
+        <td>
+            <i class="fa-solid fa-trash text-danger btn" title="delete" (click)="delete(book._id)"></i>
+            <i class="fa-solid fa-pen-to-square btn text-success" title="edit" routerLink="/user/edit/{{book._id}}"></i>
+            
+          
+
+        </td>
+      </tr>
+      
+    </tbody>
+  </table>

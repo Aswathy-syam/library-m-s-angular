@@ -1,0 +1,38 @@
+<h3 class="text-center mt-3">Add members</h3>
+
+<form [formGroup]="addMember" (ngSubmit)="add()">
+
+
+    <div class="box mt-5 border rounded shadow m-auto" style="width: 50%;">
+
+       <div class="row m-4 ">
+
+        <!-- memberid -->
+         <div class="col ">
+           <input type="text" class="form-control " placeholder="memberId" formControlName="memberId" />
+         </div>
+
+         <!-- name -->
+         <div class="col">
+     
+           <input type="text" class="form-control " placeholder="name" formControlName="name" />
+         </div>
+       </div>
+<!-- email -->
+       <div class="row m-4">
+
+         <div class="col">
+           <input type="text" class="form-control" placeholder="email"  formControlName="email"/>
+         </div>
+       </div>
+<!-- button -->
+       
+           <div class=" d-flex align-items-center justify-content-center">
+            <button type="submit" class="btn btn-success mb-4 w-50 ">Add</button>
+           </div>
+
+   </div>
+
+
+</form>
+
